@@ -1,0 +1,204 @@
+.home-container {
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero-section {
+    background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity for fading */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-buttons .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    color: black;
+    border: none;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+  }
+  
+  .btn-outline-secondary {
+    background-color: black;
+    color: white;
+    border: none; /* Remove border */
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: black; /* Keep the background black on hover */
+    color: white; /* Keep the text white on hover */
+  }
+  
+ 
+  /* Platform Features Section */
+.features-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  .features-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row */
+    gap: 20px; /* Space between cards */
+    justify-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .features-grid {
+      grid-template-columns: 1fr; /* 1 card per row on very small screens */
+    }
+  }
+  
+  .feature-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 300px; /* Fixed width for each card */
+    height: 150px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: auto; /* Push the text to the bottom if needed */
+  }
+
+  /* Stay Updated Section */
+.stay-updated-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+}
+
+.stay-updated-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stay-updated-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.stay-updated-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.btn-warning {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Statistics Section */
+.statistics-section {
+  background-color: #4f5d5e; /* Dark green background */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.statistics-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+.stat-card h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #d1d1d1; /* Light gray text for description */
+}

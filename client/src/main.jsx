@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './components/RootLayout.jsx';
-import Home from './components/Home.jsx';
+import Home from './components/Home/Home.jsx';
 
 const browserRouterObj = createBrowserRouter([
   {
