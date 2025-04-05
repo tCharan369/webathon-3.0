@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
 import RootLayout from "./components/RootLayout.jsx";
 import Home from "./components/Home/Home.jsx";
@@ -35,7 +35,16 @@ const browserRouterObj = createBrowserRouter([
       { path: "/signup/admin", element: <SignUpAdmin /> },
       { path: "/signup/faculty", element: <SignUpFaculty /> },
       { path: "/aboutus", element: <AboutUs /> },
-      // Wildcard route for Clerk's internal routes
+      // Redirect /sso-callback paths to their respective role routes
+      // { path: "/student/sso-callback", element: <Navigate to="/student" replace /> },
+      // { path: "/admin/sso-callback", element: <Navigate to="/admin" replace /> },
+      // { path: "/faculty/sso-callback", element: <Navigate to="/faculty" replace /> },
+      // For student sign-in SSO callback
+    { path: "/signin/student/sso-callback", element: <Navigate to="/student" replace /> },
+    { path: "/signin/admin/sso-callback", element: <Navigate to="/admin" replace /> },
+    { path: "/signin/faculty/sso-callback", element: <Navigate to="/faculty" replace /> },
+
+      // Wildcard route for 404
       { path: "*", element: <div>404 Not Found</div> },
     ],
   },

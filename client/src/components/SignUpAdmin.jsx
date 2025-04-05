@@ -6,7 +6,7 @@ function SignUpAdmin() {
   const navigate = useNavigate();
 
   const handleAfterSignUp = () => {
-    navigate("/admin"); // Redirect to AdminPage after successful sign-up
+    navigate("/admin");
   };
 
   return (
@@ -15,14 +15,13 @@ function SignUpAdmin() {
         path="/signup/admin"
         routing="path"
         signInUrl="/signin/admin"
-        afterSignUp={handleAfterSignUp} // Redirect after sign-up
-        afterSignIn={handleAfterSignUp} // Redirect after sign-in
+        afterSignUp={handleAfterSignUp}
         appearance={{
           layout: {
-            socialButtonsPlacement: "top", // Display social buttons at the top
+            socialButtonsPlacement: "top",
           },
         }}
-        socialButtons={["google"]} // Enable Google OAuth
+        socialButtons={["google"]}
       />
     </div>
   );

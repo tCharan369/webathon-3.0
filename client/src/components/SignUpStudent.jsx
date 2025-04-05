@@ -15,14 +15,18 @@ function SignUpStudent() {
         path="/signup/student"
         routing="path"
         signInUrl="/signin/student"
-        afterSignUp={handleAfterSignUp} // Redirect after sign-up
+        afterSignUp={() => {
+          window.location.href = "/student";
+        }}
         appearance={{
           layout: {
-            socialButtonsPlacement: "top", // Display social buttons at the top
+            socialButtonsPlacement: "top",
           },
         }}
-        socialButtons={["google"]} // Enable Google OAuth
+        socialButtons={["google"]}
       />
+
+
     </div>
   );
 }

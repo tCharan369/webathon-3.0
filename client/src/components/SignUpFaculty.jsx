@@ -6,7 +6,7 @@ function SignUpFaculty() {
   const navigate = useNavigate();
 
   const handleAfterSignUp = () => {
-    navigate("/faculty"); // Redirect to FacultyPage after successful sign-up
+    navigate("/faculty");
   };
 
   return (
@@ -15,13 +15,13 @@ function SignUpFaculty() {
         path="/signup/faculty"
         routing="path"
         signInUrl="/signin/faculty"
-        afterSignUp={handleAfterSignUp} // Redirect after sign-up
+        afterSignUp={handleAfterSignUp}
         appearance={{
           layout: {
-            socialButtonsPlacement: "top", // Display social buttons at the top
+            socialButtonsPlacement: "top",
           },
         }}
-        socialButtons={["google"]} // Enable Google OAuth
+        socialButtons={["google"]}
       />
     </div>
   );

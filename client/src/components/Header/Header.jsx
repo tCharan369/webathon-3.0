@@ -69,11 +69,11 @@ function Header() {
 
   const handleSignUpRoleClick = (role) => {
     if (role === "admin") {
-      navigate("/signup/admin");
+      navigate("/signin/admin");
     } else if (role === "student") {
-      navigate("/signup/student");
+      navigate("/signin/student");
     } else if (role === "faculty") {
-      navigate("/signup/faculty");
+      navigate("/signin/faculty");
     }
     setShowSignUpModal(false); // Close the modal after navigating
   };
