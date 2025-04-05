@@ -15,6 +15,18 @@ import SigninFaculty from "./components/SigninFaculty";
 import SignUpStudent from "./components/SignUpStudent";
 import SignUpAdmin from "./components/SignUpAdmin";
 import SignUpFaculty from "./components/SignUpFaculty";
+import 'bootstrap/dist/css/bootstrap.css';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './components/RootLayout.jsx';
+import Home from './components/Home/Home.jsx';
+import Resources from './components/Resources/Resources.jsx';
+import AdminPage from './components/Pages/Admin/AdminPage.jsx';
+import StudentPage from './components/Pages/Student/StudentPage.jsx';
+import FacultyPage from './components/Pages/Faculty/FacultyPage.jsx';
+import AboutUs from './components/AboutUs.jsx/AboutUs.jsx';
 
 const browserRouterObj = createBrowserRouter([
   {
@@ -32,6 +44,30 @@ const browserRouterObj = createBrowserRouter([
       { path: "/signup/student", element: <SignUpStudent /> },
       { path: "/signup/admin", element: <SignUpAdmin /> },
       { path: "/signup/faculty", element: <SignUpFaculty /> },
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/resources",
+        element: <Resources />,
+      },
+      {
+        path: "/admin",
+        element: <AdminPage />,
+      },
+      {
+        path: "/student",
+        element: <StudentPage />,
+      },
+      {
+        path: "/faculty",
+        element: <FacultyPage />,
+      },
+      {
+         path: "/aboutus",
+         element: <AboutUs/>
+      }
     ],
   },
 ]);
