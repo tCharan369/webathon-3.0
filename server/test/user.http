@@ -3,12 +3,12 @@ post http://localhost:1986/studentUser/createUser
 Content-Type: application/json
 
 {
-  "userName":"userName 3",
-  "firstName":"user 3 irstName",
-  "lastName":"user 3 LastName",
-  "email":"user3@mail",
-  "role":"student",
-  "profileImageUrl":"user3 image",
+  "userName":"userName 123",
+  "firstName":"user",
+  "lastName":"user 2",
+  "email":"user123@mail",
+  "role":"faculty",
+  "profileImageUrl":"user123 image",
   "isOurClg":true
 }
 ###get

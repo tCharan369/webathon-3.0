@@ -1,11 +1,24 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const adminSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  password: String,
-  role: { type: String, default: "admin" },
-  createdAt: { type: Date, default: Date.now },
+  // userName: {
+  //   type: String,
+  //   unique: true,
+  // },
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  email: { type: String, required: true, unique: true },
+
+  profileImageUrl: {
+    type: String,
+    required: true,
+  },
 });
 
 const Admin = mongoose.model("Admin", adminSchema);
