@@ -44,14 +44,14 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/" className="nav-link" href="#">
                   <FaHome /> Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/aboutus" className="nav-link" href="#">
                   <FaInfoCircle /> About Us
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <Link to="/resources" className="nav-link" href="#">
@@ -59,9 +59,9 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/organization" className="nav-link" href="#">
                   <FaBuilding /> Organization
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <button className="btn btn-link nav-link" onClick={handleSignInClick}>
