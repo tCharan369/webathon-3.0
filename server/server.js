@@ -3,6 +3,8 @@ const app = ex();
 const mongoose = require("mongoose");
 require("dotenv").config();
 const userApp = require("./routes/user");
+const adminApp = require("./routes/admin");
+const bookRouter = require("./routes/books");
 const port = process.env.PORT;
 app.use(ex.json());
 mongoose
@@ -20,3 +22,5 @@ app.get("/basic", (req, res) => {
   console.log("basic");
 });
 app.use("/studentUser", userApp);
+app.use("/admin", adminApp);
+app.use("/books", bookRouter);
