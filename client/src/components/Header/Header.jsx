@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import './Header.css';
-import { FaHome, FaInfoCircle, FaBook, FaBuilding, FaSignInAlt, FaUserPlus, FaGlobe } from 'react-icons/fa';
+import React, { useState } from "react";
+import "./Header.css";
+import {
+  FaHome,
+  FaInfoCircle,
+  FaBook,
+  FaBuilding,
+  FaSignInAlt,
+  FaUserPlus,
+} from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import { PiStudentBold } from "react-icons/pi";
 import { PiChalkboardTeacherBold } from "react-icons/pi";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleSignInClick = () => {
     setShowModal(true);
@@ -16,6 +23,21 @@ function Header() {
 
   const handleCloseModal = () => {
     setShowModal(false);
+  };
+
+  const handleAdminClick = () => {
+    navigate("/admin"); // Redirect to the admin page
+    setShowModal(false); // Close the modal
+  };
+
+  const handleStudentClick = () => {
+    navigate("/student"); // Redirect to the student page
+    setShowModal(false); // Close the modal
+  };
+
+  const handleFacultyClick = () => {
+    navigate("/faculty"); // Redirect to the faculty page
+    setShowModal(false); // Close the modal
   };
 
   return (
@@ -44,27 +66,30 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link to="/" className="nav-link" href="#">
+                <Link to="/" className="nav-link">
                   <FaHome /> Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/aboutus" className="nav-link" href="#">
+                <Link to="/aboutus" className="nav-link">
                   <FaInfoCircle /> About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/resources" className="nav-link" href="#">
+                <Link to="/resources" className="nav-link">
                   <FaBook /> Explore Resources
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/organization" className="nav-link" href="#">
+                <Link to="/organization" className="nav-link">
                   <FaBuilding /> Organization
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="btn btn-link nav-link" onClick={handleSignInClick}>
+                <button
+                  className="btn btn-link nav-link"
+                  onClick={handleSignInClick}
+                >
                   <FaSignInAlt /> Sign In
                 </button>
               </li>
@@ -87,22 +112,18 @@ function Header() {
             </button>
             <h2>Select Your Role</h2>
             <div className="role-grid">
-              <div className="role-card">
+              <div className="role-card" onClick={handleAdminClick}>
                 <RiAdminLine />
                 <p>Admin</p>
               </div>
-              <div className="role-card">
+              <div className="role-card" onClick={handleStudentClick}>
                 <PiStudentBold />
                 <p>Student</p>
               </div>
-              <div className="role-card">
+              <div className="role-card" onClick={handleFacultyClick}>
                 <PiChalkboardTeacherBold />
                 <p>Faculty</p>
               </div>
-              {/* <div className="role-card">
-                <FaSignInAlt />
-                <p>Public User</p>
-              </div> */}
             </div>
           </div>
         </div>
