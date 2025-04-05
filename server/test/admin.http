@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:1986/admin
+### addiing admin
+POST {{baseUrl}}/createAdmin
+Content-Type: application/json
+
+{
+  "firstName": "Aarav",
+  "lastName": "Sharma",
+  "email": "aarav.admin@example.com",
+  "profileImageUrl": "https://example.com/avatar.jpg"
+}
+
+
+###enable diable user
+PATCH {{baseUrl}}/toggleUserStatus/67f12cb971c91a1b95736d99
+Content-Type: application/json
+###get all usrs
+GET {{baseUrl}}/allUsers
+Content-Type: application/json
