@@ -3,14 +3,28 @@ post http://localhost:1986/studentUser/createUser
 Content-Type: application/json
 
 {
-  "userName":"userName 1",
-  "firstName":"user firstName",
-  "lastName":"user LastName",
-  "email":"user1@mail",
-  "profileImageUrl":"user1 image",
+  "userName":"userName 3",
+  "firstName":"user 3 irstName",
+  "lastName":"user 3 LastName",
+  "email":"user3@mail",
+  "role":"student",
+  "profileImageUrl":"user3 image",
   "isOurClg":true
 }
 ###get
 get http://localhost:1986/studentUser/getUsers
-###get
-get http://localhost:1986/basic
+###get by id
+get http://localhost:1986/studentUser/getUser/67f12a3778e9dfe85271f188
+###update by id
+put http://localhost:1986/studentUser/updateUser/67f12a3778e9dfe85271f188
+Content-Type: application/json
+
+{
+    "firstName":"user 21  firstName",
+    "lastName":"user 21 LastName"
+}
+###block a user
+PATCH http://localhost:1986/studentUser/blockUser/67f12a3778e9dfe85271f188
+
+
+

@@ -2,7 +2,7 @@ const ex = require("express");
 const app = ex();
 const mongoose = require("mongoose");
 require("dotenv").config();
-const studentUserApp = require('./routes/studentUser')
+const userApp = require("./routes/user");
 const port = process.env.PORT;
 app.use(ex.json());
 mongoose
@@ -19,4 +19,4 @@ mongoose
 app.get("/basic", (req, res) => {
   console.log("basic");
 });
-app.use("/studentUser", studentUserApp);
+app.use("/studentUser", userApp);
