@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 import {
   FaHome,
   FaInfoCircle,
@@ -13,6 +14,7 @@ import { PiStudentBold } from "react-icons/pi";
 import { PiChalkboardTeacherBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { SignIn, useAuth } from "@clerk/clerk-react";
+
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -81,9 +83,9 @@ function Header() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           {/* Logo */}
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand" href="#">
             Knowbase
-          </a>
+          </Link>
 
           {/* Toggler for mobile view */}
           <button
@@ -102,19 +104,19 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/" className="nav-link" href="#">
                   <FaHome /> Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/aboutus" className="nav-link" href="#">
                   <FaInfoCircle /> About Us
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/resources" className="nav-link" href="#">
                   <FaBook /> Explore Resources
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">

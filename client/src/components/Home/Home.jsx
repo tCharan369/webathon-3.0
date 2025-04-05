@@ -7,8 +7,8 @@ function Home() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Your Academic Journey Starts Here</h1>
-          <p>A Smart Academic Repository & Collaboration Hub</p>
+          <h1 className='text-white'>Your Academic Journey Starts Here</h1>
+          <p className='text-white'>A Smart Academic Repository & Collaboration Hub</p>
           <div className="hero-buttons">
             <button className="btn btn-warning">Get Started</button>
             <button className="btn btn-outline-secondary">Explore Resources</button>

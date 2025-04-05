@@ -5,6 +5,7 @@ require("dotenv").config();
 const userApp = require("./routes/user");
 const adminApp = require("./routes/admin");
 const bookRouter = require("./routes/books");
+const clerkRouter = require("./routes/clerk");
 const port = process.env.PORT;
 app.use(ex.json());
 mongoose
@@ -24,3 +25,4 @@ app.get("/basic", (req, res) => {
 app.use("/studentUser", userApp);
 app.use("/admin", adminApp);
 app.use("/books", bookRouter);
+app.use("/clerk", clerkRouter);
