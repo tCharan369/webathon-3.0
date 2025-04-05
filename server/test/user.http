@@ -1,0 +1,16 @@
+###post
+post http://localhost:1986/studentUser/createUser
+Content-Type: application/json
+
+{
+  "userName":"userName 1",
+  "firstName":"user firstName",
+  "lastName":"user LastName",
+  "email":"user1@mail",
+  "profileImageUrl":"user1 image",
+  "isOurClg":true
+}
+###get
+get http://localhost:1986/studentUser/getUsers
+###get
+get http://localhost:1986/basic
