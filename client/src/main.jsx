@@ -9,37 +9,29 @@ import Resources from "./components/Resources/Resources.jsx";
 import AdminPage from "./components/Pages/Admin/AdminPage.jsx";
 import StudentPage from "./components/Pages/Student/StudentPage.jsx";
 import FacultyPage from "./components/Pages/Faculty/FacultyPage.jsx";
-// import About from './components/About/About.jsx';
+import SigninStudent from "./components/SigninStudent";
+import SigninAdmin from "./components/SigninAdmin";
+import SigninFaculty from "./components/SigninFaculty";
+import SignUpStudent from "./components/SignUpStudent";
+import SignUpAdmin from "./components/SignUpAdmin";
+import SignUpFaculty from "./components/SignUpFaculty";
 
 const browserRouterObj = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/resources",
-        element: <Resources />,
-      },
-      {
-        path: "/admin",
-        element: <AdminPage />,
-      },
-      {
-        path: "/student",
-        element: <StudentPage />,
-      },
-      {
-        path: "/faculty",
-        element: <FacultyPage />,
-      },
-      {
-        // path: '/aboutus',
-        // element: <About/>
-      },
+      { path: "/", element: <Home /> },
+      { path: "/resources", element: <Resources /> },
+      { path: "/admin", element: <AdminPage /> },
+      { path: "/student", element: <StudentPage /> },
+      { path: "/faculty", element: <FacultyPage /> },
+      { path: "/signin/student", element: <SigninStudent /> },
+      { path: "/signin/admin", element: <SigninAdmin /> },
+      { path: "/signin/faculty", element: <SigninFaculty /> },
+      { path: "/signup/student", element: <SignUpStudent /> },
+      { path: "/signup/admin", element: <SignUpAdmin /> },
+      { path: "/signup/faculty", element: <SignUpFaculty /> },
     ],
   },
 ]);
@@ -47,5 +39,5 @@ const browserRouterObj = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={browserRouterObj} />
-  </StrictMode>
+  </StrictMode>        
 );

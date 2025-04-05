@@ -11,11 +11,15 @@ import {
 import { RiAdminLine } from "react-icons/ri";
 import { PiStudentBold } from "react-icons/pi";
 import { PiChalkboardTeacherBold } from "react-icons/pi";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { SignIn, useAuth } from "@clerk/clerk-react";
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Hook for navigation
+  const [selectedRole, setSelectedRole] = useState(null);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const navigate = useNavigate();
+  const { isSignedIn } = useAuth();
 
   const handleSignInClick = () => {
     setShowModal(true);
@@ -23,21 +27,53 @@ function Header() {
 
   const handleCloseModal = () => {
     setShowModal(false);
+    setSelectedRole(null);
   };
 
-  const handleAdminClick = () => {
-    navigate("/admin"); // Redirect to the admin page
-    setShowModal(false); // Close the modal
+  const handleRoleClick = (role) => {
+    setSelectedRole(role);
+    if (role === "admin") {
+      navigate("/signin/admin");
+    } else if (role === "student") {
+      navigate("/signin/student");
+    } else if (role === "faculty") {
+      navigate("/signin/faculty");
+    }
+    setShowModal(false); // Close the modal after navigating
   };
 
-  const handleStudentClick = () => {
-    navigate("/student"); // Redirect to the student page
-    setShowModal(false); // Close the modal
+  const handleOnSignIn = async () => {
+    if (isSignedIn) {
+      if (selectedRole === "admin") {
+        navigate("/admin");
+      } else if (selectedRole === "student") {
+        navigate("/student");
+      } else if (selectedRole === "faculty") {
+        navigate("/faculty");
+      }
+      setShowModal(false);
+    } else {
+      console.error("User is not signed in.");
+    }
   };
 
-  const handleFacultyClick = () => {
-    navigate("/faculty"); // Redirect to the faculty page
-    setShowModal(false); // Close the modal
+  const handleSignUpClick = () => {
+    setShowSignUpModal(true);
+  };
+
+  const handleCloseSignUpModal = () => {
+    setShowSignUpModal(false);
+  };
+
+  const handleSignUpRoleClick = (role) => {
+    if (role === "admin") {
+      navigate("/signup/admin");
+    } else if (role === "student") {
+      navigate("/signup/student");
+    } else if (role === "faculty") {
+      navigate("/signup/faculty");
+    }
+    setShowSignUpModal(false); // Close the modal after navigating
   };
 
   return (
@@ -66,24 +102,24 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link to="/" className="nav-link">
+                <a className="nav-link" href="#">
                   <FaHome /> Home
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link to="/aboutus" className="nav-link">
+                <a className="nav-link" href="#">
                   <FaInfoCircle /> About Us
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link to="/resources" className="nav-link">
+                <a className="nav-link" href="#">
                   <FaBook /> Explore Resources
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link to="/organization" className="nav-link">
+                <a className="nav-link" href="#">
                   <FaBuilding /> Organization
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
                 <button
@@ -94,9 +130,12 @@ function Header() {
                 </button>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <button
+                  className="btn btn-link nav-link"
+                  onClick={handleSignUpClick}
+                >
                   <FaUserPlus /> Sign Up
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -112,15 +151,41 @@ function Header() {
             </button>
             <h2>Select Your Role</h2>
             <div className="role-grid">
-              <div className="role-card" onClick={handleAdminClick}>
+              <div className="role-card" onClick={() => handleRoleClick("admin")}>
                 <RiAdminLine />
                 <p>Admin</p>
               </div>
-              <div className="role-card" onClick={handleStudentClick}>
+              <div className="role-card" onClick={() => handleRoleClick("student")}>
                 <PiStudentBold />
                 <p>Student</p>
               </div>
-              <div className="role-card" onClick={handleFacultyClick}>
+              <div className="role-card" onClick={() => handleRoleClick("faculty")}>
+                <PiChalkboardTeacherBold />
+                <p>Faculty</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sign Up Modal */}
+      {showSignUpModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-button" onClick={handleCloseSignUpModal}>
+              &times;
+            </button>
+            <h2>Select Your Role</h2>
+            <div className="role-grid">
+              <div className="role-card" onClick={() => handleSignUpRoleClick("admin")}>
+                <RiAdminLine />
+                <p>Admin</p>
+              </div>
+              <div className="role-card" onClick={() => handleSignUpRoleClick("student")}>
+                <PiStudentBold />
+                <p>Student</p>
+              </div>
+              <div className="role-card" onClick={() => handleSignUpRoleClick("faculty")}>
                 <PiChalkboardTeacherBold />
                 <p>Faculty</p>
               </div>
