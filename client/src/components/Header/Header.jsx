@@ -1,9 +1,23 @@
-import React from 'react';
-import './Header.css'; // Add a CSS file for custom styling
+import React, { useState } from 'react';
+import './Header.css';
 import { FaHome, FaInfoCircle, FaBook, FaBuilding, FaSignInAlt, FaUserPlus, FaGlobe } from 'react-icons/fa';
-import { TiUserAddOutline } from "react-icons/ti";
+import { RiAdminLine } from "react-icons/ri";
+import { PiStudentBold } from "react-icons/pi";
+import { PiChalkboardTeacherBold } from "react-icons/pi";
+import { Link } from 'react-router-dom';
+
 
 function Header() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSignInClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,60 +54,59 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link to="/resources" className="nav-link" href="#">
                   <FaBook /> Explore Resources
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   <FaBuilding /> Organization
                 </a>
               </li>
-              <li className="nav-item signin-dropdown">
-                <a className="nav-link" href="#">
+              <li className="nav-item">
+                <button className="btn btn-link nav-link" onClick={handleSignInClick}>
                   <FaSignInAlt /> Sign In
-                </a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Public User</a></li>
-                  <li><a href="#">Student</a></li>
-                  <li><a href="#">Faculty</a></li>
-                  <li><a href="#">Admin</a></li>
-                </ul>
+                </button>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   <FaUserPlus /> Sign Up
                 </a>
               </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="languageDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <FaGlobe /> English
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="languageDropdown">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      English
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Spanish
-                    </a>
-                  </li>
-                </ul>
-              </li>
             </ul>
           </div>
         </div>
       </nav>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-button" onClick={handleCloseModal}>
+              &times;
+            </button>
+            <h2>Select Your Role</h2>
+            <div className="role-grid">
+              <div className="role-card">
+                <RiAdminLine />
+                <p>Admin</p>
+              </div>
+              <div className="role-card">
+                <PiStudentBold />
+                <p>Student</p>
+              </div>
+              <div className="role-card">
+                <PiChalkboardTeacherBold />
+                <p>Faculty</p>
+              </div>
+              {/* <div className="role-card">
+                <FaSignInAlt />
+                <p>Public User</p>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
