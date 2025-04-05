@@ -10,26 +10,38 @@ import AboutUs from './components/AboutUs.jsx/AboutUs.jsx';
 
 const browserRouterObj = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <RootLayout />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home />,
       },
       {
-        path: '/resources',
-        element:<Resources />,
+        path: "/resources",
+        element: <Resources />,
       },
       {
-         path: '/aboutus',
+        path: "/admin",
+        element: <AdminPage />,
+      },
+      {
+        path: "/student",
+        element: <StudentPage />,
+      },
+      {
+        path: "/faculty",
+        element: <FacultyPage />,
+      },
+      {
+         path: "/aboutus",
          element: <AboutUs/>
       }
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={browserRouterObj} />
   </StrictMode>
