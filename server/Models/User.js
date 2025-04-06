@@ -11,17 +11,16 @@ const userSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: true,
   },
   email: { type: String, required: true, unique: true },
   role: {
     type: String,
     enum: ["student", "faculty", "public"],
-    required: true,
+    default: "public",
   },
   profileImageUrl: {
     type: String,
-    required: true,
+    default: "",
   },
   isActive: { type: Boolean, default: true },
 });

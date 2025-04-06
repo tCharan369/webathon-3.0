@@ -22,17 +22,22 @@ clerkRouter.post(
     }
 
     // Create a new user in the database
-    const newUser = new User({
-      userName: id,
-      firstName: first_name || "Unknown",
-      lastName: last_name || "Unknown",
-      email: email_addresses[0].email,
-      role: public_metadata?.role || "student",
-      profileImageUrl: profile_image_url || "",
-    });
+    try {
+      const newUser = new User({
+        userName: id,
+        firstName: first_name || "Unknown",
+        lastName: last_name || "Unknown",
+        email: email_addresses[0].email,
+        role: public_metadata?.role || "student",
+        profileImageUrl: profile_image_url || "",
+      });
 
-    await newUser.save();
-    res.status(201).send({ message: "User created successfully" });
+      await newUser.save();
+      res.status(201).send({ message: "User created successfully" });
+    } catch (error) {
+      console.error("Error saving user:", error);
+      res.status(500).send({ message: "Internal server error" });
+    }
   })
 );
 

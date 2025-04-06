@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AllUsersContext from "./contexts/AllUsersContext.jsx";
 
 // Layout and Pages
 import RootLayout from "./components/RootLayout.jsx";
@@ -20,9 +21,9 @@ import SignInWithRole from "./components/SignInWithRole.jsx";
 import SignUpStudent from "./components/SignUpStudent.jsx";
 import SignUpAdmin from "./components/SignUpAdmin.jsx";
 import SignUpFaculty from "./components/SignUpFaculty.jsx";
+import SignInUpWithRole from "./components/SignInUpWithRole.jsx";
 
 // Context
-import AllUsersContext from "./contexts/AllUsersContext.jsx";
 
 // ✅ Routing Configuration
 const browserRouterObj = createBrowserRouter([
@@ -40,6 +41,7 @@ const browserRouterObj = createBrowserRouter([
       { path: "/signup/admin", element: <SignUpAdmin /> },
 
       // ✅ SignIn Route (dynamic)
+      { path: "/signin/:role", element: <SignInUpWithRole /> },
       { path: "/signin/:role", element: <SignInWithRole /> },
 
       // ✅ Dashboards for each role

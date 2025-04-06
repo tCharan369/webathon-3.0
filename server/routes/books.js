@@ -12,6 +12,10 @@ bookRouter.post(
   expressAsyncHandler(async (req, res) => {
     const { category, title, author, tags, userId } = req.body;
 
+    if (!category || !title || !author || !userId) {
+      return res.status(400).send({ message: "All fields are required" });
+    }
+
     const newBook = new Books({
       category,
       title,
@@ -85,12 +89,16 @@ bookRouter.get(
 bookRouter.get(
   "/:bookId",
   expressAsyncHandler(async (req, res) => {
-    const book = await Books.findById(req.params.bookId)
-      .populate("uploadedBy", "firstName lastName email")
-      .populate("takenBy", "firstName lastName email");
+    try {
+      const book = await Books.findById(req.params.bookId)
+        .populate("uploadedBy", "firstName lastName email")
+        .populate("takenBy", "firstName lastName email");
 
-    if (!book) return res.status(404).send({ message: "Book not found" });
-    res.send({ message: "Book found", payload: book });
+      if (!book) return res.status(404).send({ message: "Book not found" });
+      res.send({ message: "Book found", payload: book });
+    } catch (error) {
+      res.status(500).send({ message: "Error fetching book", error });
+    }
   })
 );
 

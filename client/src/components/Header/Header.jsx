@@ -1,3 +1,4 @@
+// Header.jsx
 import React, { useState, useContext } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -68,21 +69,33 @@ function Header() {
                   </li>
                 </>
               ) : (
-                <li className="nav-item">
-                  <button
-                    className="btn btn-link nav-link"
-                    onClick={handleSignOut}
-                  >
-                    <FaSignInAlt /> Sign Out
-                  </button>
-                </li>
+                <>
+                  <li className="nav-item d-flex align-items-center px-3">
+                    <img
+                      src={currentUser?.profileImage || user.imageUrl}
+                      alt="Profile"
+                      className="rounded-circle"
+                      width="32"
+                      height="32"
+                    />
+                    <span className="ms-2">{currentUser?.fullName || user.fullName}</span>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      className="btn btn-link nav-link"
+                      onClick={handleSignOut}
+                    >
+                      <FaSignInAlt /> Sign Out
+                    </button>
+                  </li>
+                </>
               )}
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* 🔑 Sign-In Modal */}
+      {/* Sign-In Modal */}
       {showSignInModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -105,7 +118,7 @@ function Header() {
         </div>
       )}
 
-      {/* 🆕 Sign-Up Modal */}
+      {/* Sign-Up Modal */}
       {showSignUpModal && (
         <div className="modal-overlay">
           <div className="modal-content">

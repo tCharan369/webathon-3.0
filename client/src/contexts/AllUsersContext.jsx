@@ -1,21 +1,19 @@
-import { createContext,useState } from "react"
-export const allUsersContextObj = createContext()
+import { createContext, useState } from "react";
+export const allUsersContextObj = createContext();
 
-function AllUsersContext({children}) {
-
-   let [currentUser, setCurrentUser] = useState({
-    firstName: "",
-    lastName: "",
+function AllUsersContext({ children }) {
+  const [currentUser, setCurrentUser] = useState({
+    fullName: "",
     email: "",
-    profileImageUrl: "",
+    profileImage: "",
     role: "",
-   })
+  });
 
   return (
     <allUsersContextObj.Provider value={{ currentUser, setCurrentUser }}>
-      {children} 
+      {children}
     </allUsersContextObj.Provider>
-  )
+  );
 }
 
-export default AllUsersContext
+export default AllUsersContext;

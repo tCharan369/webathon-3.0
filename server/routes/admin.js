@@ -19,6 +19,10 @@ adminApp.post(
   expressAsyncHandler(async (req, res) => {
     const { firstName, lastName, email, profileImageUrl } = req.body;
 
+    if (!firstName || !lastName || !email || !profileImageUrl) {
+      return res.status(400).send({ message: "All fields are required" });
+    }
+
     const adminInDb = await Admin.findOne({ email });
     if (adminInDb) {
       return res.status(400).send({ message: "Admin already exists" });
