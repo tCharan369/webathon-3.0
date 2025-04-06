@@ -11,9 +11,6 @@ import Resources from "./components/Resources/Resources.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
 
 // Role Dashboards
-import AdminPage from "./components/Pages/Admin/AdminPage.jsx";
-import StudentPage from "./components/Pages/Student/StudentPage.jsx";
-import FacultyPage from "./components/Pages/Faculty/FacultyPage.jsx";
 
 // SignIn and SignUp
 import SignInWithRole from "./components/SignInWithRole.jsx";
@@ -23,6 +20,12 @@ import SignUpFaculty from "./components/SignUpFaculty.jsx";
 
 // Context
 import AllUsersContext from "./contexts/AllUsersContext.jsx";
+import StudentPage from "./components/Pages/Student/StudentPage.jsx";
+import Dashboard from "./components/Pages/Student/DashBoard.jsx";
+import RepositoryPage from "./components/Pages/Student/RepositoryPage.jsx";
+import ForumPage from "./components/Pages/Student/ForumPage.jsx";
+import BookmarksPage from "./components/Pages/Student/BookmarksPage.jsx";
+import RequestMaterialPage from "./components/Pages/Student/RequestMaterialPage.jsx";
 
 // ✅ Routing Configuration
 const browserRouterObj = createBrowserRouter([
@@ -43,9 +46,36 @@ const browserRouterObj = createBrowserRouter([
       { path: "/signin/:role", element: <SignInWithRole /> },
 
       // ✅ Dashboards for each role
-      { path: "/student-dashboard", element: <StudentPage /> },
-      { path: "/faculty-dashboard", element: <FacultyPage /> },
-      { path: "/admin-dashboard", element: <AdminPage /> },
+      {
+        path: "student-dashboard",
+        element: <StudentPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "repository",
+            element: <RepositoryPage />,
+          },
+          {
+            path: "request-material",
+            element: <RequestMaterialPage />,
+          },
+
+          {
+            path: "forums",
+            element: <ForumPage />,
+          },
+          {
+            path: "bookmarks",
+            element: <BookmarksPage />,
+          },
+        ],
+      },
+
+      // { path: "/faculty-dashboard", element: <FacultyPage /> },
+      // { path: "/admin-dashboard", element: <AdminPage /> },
 
       // 404 fallback
       { path: "*", element: <div>404 Not Found</div> },

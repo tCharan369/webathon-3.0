@@ -1,0 +1,141 @@
+.my-bookings-page {
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.my-bookings-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.booking-section {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.booking-section .booking-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.booking-section .calendar {
+  flex: 1;
+}
+
+.booking-section .calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.booking-section .calendar th,
+.booking-section .calendar td {
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+}
+
+.booking-section .calendar td {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-section .calendar td:hover {
+  background-color: #f1f3f4;
+}
+
+.booking-section .calendar td.selected {
+  background-color: #e8f0fe;
+  color: #4a90e2;
+  font-weight: bold;
+}
+
+.booking-section .available-slots {
+  flex: 1;
+}
+
+.booking-section .available-slots h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.booking-section .available-slots ul {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-section .available-slots ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.booking-section .available-slots ul li .status {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 0.3rem 0.6rem;
+}
+
+.booking-section .available-slots ul li .status.available {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.your-bookings-section {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.your-bookings-section .booking-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.your-bookings-section .booking-item .booking-info p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.your-bookings-section .booking-item .booking-info p svg {
+  margin-right: 0.3rem;
+}
+
+.your-bookings-section .booking-item .booking-info h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.your-bookings-section .booking-item .booking-info .due-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.your-bookings-section .booking-item .cancel-btn {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.your-bookings-section .booking-item .cancel-btn:hover {
+  background-color: #ffcdd2;
+}

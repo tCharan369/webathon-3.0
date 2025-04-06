@@ -1,0 +1,61 @@
+.bookmarks-page {
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.bookmarks-page h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bookmark-item {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmark-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.bookmark-info p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.bookmark-info .bookmark-date {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.remove-btn {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #ffcdd2;
+}
