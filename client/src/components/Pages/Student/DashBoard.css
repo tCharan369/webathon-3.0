@@ -1,0 +1,160 @@
+.dashboard-page {
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+/* Stats Section */
+.stats-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: #4a90e2;
+  background-color: #e8f0fe;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.stat-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.stat-info p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stat-change {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.stat-change.positive {
+  color: #4caf50;
+}
+
+.stat-change.negative {
+  color: #f44336;
+}
+
+.stat-change.neutral {
+  color: #999;
+}
+
+/* Weekly Activity Section */
+.activity-section {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activity-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.activity-chart {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f3f4;
+  border-radius: 8px;
+  color: #666;
+  font-size: 1rem;
+}
+/* Recent Notifications Section */
+.recent-notifications {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.recent-notifications h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.recent-notifications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-notifications li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.recent-notifications li:last-child {
+  border-bottom: none;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  color: #4a90e2;
+  margin-right: 1rem;
+}
+
+.recent-notifications li div {
+  flex: 1;
+}
+
+.recent-notifications li p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.recent-notifications li span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.status {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 0.3rem 0.6rem;
+}
+
+.status.success {
+  background-color: #e8f5e9;
+  color: #4caf50;
+}
+
+.status.warning {
+  background-color: #fff4e5;
+  color: #ff9800;
+}
+
+.status.info {
+  background-color: #e3f2fd;
+  color: #2196f3;
+}

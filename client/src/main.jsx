@@ -12,9 +12,6 @@ import Resources from "./components/Resources/Resources.jsx";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
 
 // Role Dashboards
-import AdminPage from "./components/Pages/Admin/AdminPage.jsx";
-import StudentPage from "./components/Pages/Student/StudentPage.jsx";
-import FacultyPage from "./components/Pages/Faculty/FacultyPage.jsx";
 
 // SignIn and SignUp
 import SignInWithRole from "./components/SignInWithRole.jsx";
@@ -35,7 +32,7 @@ const browserRouterObj = createBrowserRouter([
       { path: "/resources", element: <Resources /> },
       { path: "/aboutus", element: <AboutUs /> },
 
-      // ✅ SignUp Routes (static)
+      //  SignUp Routes (static)
       { path: "/signup/student", element: <SignUpStudent /> },
       { path: "/signup/faculty", element: <SignUpFaculty /> },
       { path: "/signup/admin", element: <SignUpAdmin /> },
@@ -44,10 +41,73 @@ const browserRouterObj = createBrowserRouter([
       { path: "/signin/:role", element: <SignInUpWithRole /> },
       { path: "/signin/:role", element: <SignInWithRole /> },
 
-      // ✅ Dashboards for each role
-      { path: "/student-dashboard", element: <StudentPage /> },
-      { path: "/faculty-dashboard", element: <FacultyPage /> },
-      { path: "/admin-dashboard", element: <AdminPage /> },
+      //  Dashboards for each role
+      {
+        path: "student-dashboard",
+        element: <StudentPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "repository",
+            element: <RepositoryPage />,
+          },
+          {
+            path: "request-material",
+            element: <RequestMaterialPage />,
+          },
+
+          {
+            path: "forums",
+            element: <ForumPage />,
+          },
+          {
+            path: "bookmarks",
+            element: <BookmarksPage />,
+          },
+        ],
+      },
+
+      {
+        path: "/faculty-dashboard",
+        element: <FacultyPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "profile",
+            element: <FacultyProfile />,
+          },
+          {
+            path: "upload-materials",
+            element: <UploadMaterials />,
+          },
+        ],
+      },
+      { path: "/admin-dashboard", 
+        element: <AdminPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "dashboard-overview",
+            element: <Dashboard />,
+          },
+          {
+            path: "user-management",
+            element: <UserManagement  />,
+          },
+          {
+            path: "content-management",
+            element: <ContentManagement  />,
+          }
+        ]},
 
       // 404 fallback
       { path: "*", element: <div>404 Not Found</div> },
