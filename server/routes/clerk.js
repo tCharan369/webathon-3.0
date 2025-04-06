@@ -8,8 +8,12 @@ const clerkRouter = express.Router();
 clerkRouter.post(
   "/webhook",
   expressAsyncHandler(async (req, res) => {
-    const { id, email_addresses, first_name, last_name, profile_image_url } =
+    const { id, email_addresses, first_name, last_name, profile_image_url, public_metadata } =
       req.body;
+
+    if (!id || !email_addresses || !email_addresses[0]?.email) {
+      return res.status(400).send({ message: "Invalid payload" });
+    }
 
     // Check if the user already exists
     const existingUser = await User.findOne({ email: email_addresses[0].email });
@@ -19,12 +23,12 @@ clerkRouter.post(
 
     // Create a new user in the database
     const newUser = new User({
-      userName: id, // Clerk user ID
-      firstName: first_name,
-      lastName: last_name,
+      userName: id,
+      firstName: first_name || "Unknown",
+      lastName: last_name || "Unknown",
       email: email_addresses[0].email,
-      role: "student", // Default role, can be updated later
-      profileImageUrl: profile_image_url,
+      role: public_metadata?.role || "student",
+      profileImageUrl: profile_image_url || "",
     });
 
     await newUser.save();

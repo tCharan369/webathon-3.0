@@ -6,7 +6,7 @@ function SignUpAdmin() {
   const navigate = useNavigate();
 
   const handleAfterSignUp = () => {
-    navigate("/admin");
+    navigate("/admin"); // Redirect to the admin page after sign-up
   };
 
   return (
@@ -18,10 +18,13 @@ function SignUpAdmin() {
         afterSignUp={handleAfterSignUp}
         appearance={{
           layout: {
-            socialButtonsPlacement: "top",
+            socialButtonsPlacement: "top", // Display social buttons at the top
           },
         }}
-        socialButtons={["google"]}
+        socialButtons={["google"]} // Enable Google OAuth
+        signUpAttributes={{
+          publicMetadata: { role: "admin" }, // Pass role as metadata
+        }}
       />
     </div>
   );
