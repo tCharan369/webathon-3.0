@@ -32,8 +32,11 @@ import RequestMaterialPage from "./components/Pages/Student/RequestMaterialPage.
 import FacultyPage from "./components/Pages/Faculty/FacultyPage.jsx";
 import FacultyProfile from "./components/Pages/Faculty/FacultyProfile.jsx";
 import UploadMaterials from "./components/Pages/Faculty/UploadMaterials.jsx";
+import AdminPage from "./components/Pages/Admin/AdminPage.jsx";
+import UserManagement from "./components/Pages/Admin/UserManagement.jsx";
+import ContentManagement from "./components/Pages/Admin/ContentManagement.jsx";
 
-// ✅ Routing Configuration
+//  Routing Configuration
 const browserRouterObj = createBrowserRouter([
   {
     path: "/",
@@ -43,15 +46,15 @@ const browserRouterObj = createBrowserRouter([
       { path: "/resources", element: <Resources /> },
       { path: "/aboutus", element: <AboutUs /> },
 
-      // ✅ SignUp Routes (static)
+      //  SignUp Routes (static)
       { path: "/signup/student", element: <SignUpStudent /> },
       { path: "/signup/faculty", element: <SignUpFaculty /> },
       { path: "/signup/admin", element: <SignUpAdmin /> },
 
-      // ✅ SignIn Route (dynamic)
+      //  SignIn Route (dynamic)
       { path: "/signin/:role", element: <SignInWithRole /> },
 
-      // ✅ Dashboards for each role
+      //  Dashboards for each role
       {
         path: "student-dashboard",
         element: <StudentPage />,
@@ -98,7 +101,26 @@ const browserRouterObj = createBrowserRouter([
           },
         ],
       },
-      // { path: "/admin-dashboard", element: <AdminPage /> },
+      { path: "/admin-dashboard", 
+        element: <AdminPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "dashboard-overview",
+            element: <Dashboard />,
+          },
+          {
+            path: "user-management",
+            element: <UserManagement  />,
+          },
+          {
+            path: "content-management",
+            element: <ContentManagement  />,
+          }
+        ]},
 
       // 404 fallback
       { path: "*", element: <div>404 Not Found</div> },
