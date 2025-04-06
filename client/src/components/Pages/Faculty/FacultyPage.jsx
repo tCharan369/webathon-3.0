@@ -23,28 +23,28 @@ function FacultyPage() {
         </div>
         <nav className="sidebar-nav">
           <ul>
-            <li onClick={() => navigate("/faculty/profile")}>
+            <li onClick={() => navigate("/faculty-dashboard/profile")}>
               <FaUser className="icon" /> My Profile
             </li>
             <li
               className="active"
-              onClick={() => navigate("/faculty/upload-materials")}
+              onClick={() => navigate("/faculty-dashboard/upload-materials")}
             >
               <FaUpload className="icon" /> Upload Materials
             </li>
-            <li onClick={() => navigate("/faculty/forums")}>
+            <li onClick={() => navigate("/faculty-dashboard/forums")}>
               <MdOutlineForum className="icon" /> Forums
             </li>
-            <li onClick={() => navigate("/faculty/book-manager")}>
+            <li onClick={() => navigate("/faculty-dashboard/book-manager")}>
               <FaBook className="icon" /> Book Manager
             </li>
-            <li onClick={() => navigate("/faculty/students")}>
+            <li onClick={() => navigate("/faculty-dashboard/students")}>
               <FaGraduationCap className="icon" /> Students
             </li>
-            <li onClick={() => navigate("/faculty/explore")}>
+            <li onClick={() => navigate("/faculty-dashboard/explore")}>
               <FaSearch className="icon" /> Explore
             </li>
-            <li onClick={() => navigate("/faculty/settings")}>
+            <li onClick={() => navigate("/faculty-dashboard/settings")}>
               <FaCog className="icon" /> Settings
             </li>
           </ul>

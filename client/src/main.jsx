@@ -20,12 +20,18 @@ import SignUpFaculty from "./components/SignUpFaculty.jsx";
 
 // Context
 import AllUsersContext from "./contexts/AllUsersContext.jsx";
+//student
+
 import StudentPage from "./components/Pages/Student/StudentPage.jsx";
 import Dashboard from "./components/Pages/Student/DashBoard.jsx";
 import RepositoryPage from "./components/Pages/Student/RepositoryPage.jsx";
 import ForumPage from "./components/Pages/Student/ForumPage.jsx";
 import BookmarksPage from "./components/Pages/Student/BookmarksPage.jsx";
 import RequestMaterialPage from "./components/Pages/Student/RequestMaterialPage.jsx";
+// faculty
+import FacultyPage from "./components/Pages/Faculty/FacultyPage.jsx";
+import FacultyProfile from "./components/Pages/Faculty/FacultyProfile.jsx";
+import UploadMaterials from "./components/Pages/Faculty/UploadMaterials.jsx";
 
 // ✅ Routing Configuration
 const browserRouterObj = createBrowserRouter([
@@ -74,7 +80,24 @@ const browserRouterObj = createBrowserRouter([
         ],
       },
 
-      // { path: "/faculty-dashboard", element: <FacultyPage /> },
+      {
+        path: "/faculty-dashboard",
+        element: <FacultyPage />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard />,
+          },
+          {
+            path: "profile",
+            element: <FacultyProfile />,
+          },
+          {
+            path: "upload-materials",
+            element: <UploadMaterials />,
+          },
+        ],
+      },
       // { path: "/admin-dashboard", element: <AdminPage /> },
 
       // 404 fallback
